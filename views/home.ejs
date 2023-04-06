@@ -3,25 +3,238 @@
 	<head>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<title>Express • TodoMVC</title>
+		<title>TaskTapp</title>
 		<link rel="stylesheet" href="/css/base.css">
 		<link rel="stylesheet" href="/css/index.css">
 		<link rel="stylesheet" href="/css/home.css">
 	</head>
+	<style>
+		/* .create{
+			font-weight: 700;
+		}
+		a{
+			font-weight: 700;
+		}
+		.checks{
+			display: flex;
+
+
+		}
+		input{
+			text-decoration: none;
+
+
+		}
+		li{
+			text-decoration: none;
+			margin: auto;
+
+			list-style: none;
+		} */
+		@import url('https://fonts.googleapis.com/css?family=Montserrat:400,700');
+
+body, html {
+    height: calc(100% - 2em);
+    margin: 0;
+    font-family: 'Montserrat';
+}
+
+
+body {
+        background-color: #EEC9F4;
+}
+
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 100;
+  }
+  
+  .svgHeader {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+
+nav {
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 200;
+    padding-right: 5vw;
+  }
+  
+  nav ul {
+    display: flex;
+    justify-content: flex-end;
+    list-style: none;
+    padding: 20px 0;
+  }
+  
+  nav a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 18px;
+    padding-left: 5vw;
+  }
+  
+  nav a:hover {
+    color: #ccc;
+  }
+
+
+
+.welcome-banner {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: rgba(255, 255, 255, 1);
+  padding: 60px;
+  padding-left: 75px;
+  padding-right: 75px;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  z-index: 200;
+  display: inline-block;
+  text-align: center;
+  width: 50%;
+}
+
+.welcome-banner h1,
+.welcome-banner p {
+  margin: 0;
+  padding: 0;
+}
+
+.welcome-banner h1 {
+  margin-bottom: 10px;
+  font-size: 45px;
+}
+
+.welcome-banner p {
+    font-size: 25px;
+    padding-top: 25px;
+}
+
+
+.cta {
+    position: absolute;
+    bottom: -25px;
+    display: inline-block;
+    padding: 15px 24px;
+    font-size: 1rem;
+    color: #ffffff;
+    text-decoration: none;
+    background-color: #32279E;
+    border-radius: 5px;
+    width: 50%;
+    text-align: center;
+    box-sizing: border-box;
+    left: 25%;
+    
+  }
+
+  .cta a {
+    font-weight: 500;
+  }
+
+  .bottom-boxes {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 150px;
+    z-index: 2;
+  }
+  
+  .box {
+    width: 200px;
+    height: 100px;
+    background-color: white;
+    margin: 0 10px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  @media (max-width: 767px) {
+    .bottom-boxes {
+      flex-direction: column;
+      height: auto;
+    }
+  
+    .box {
+      margin: 10px 0;
+    }
+  }
+
+
+	</style>
 	<body>
-		<section class="todohome">
+		<!-- <section class="todohome">
 			<header>
-				<h1>todos</h1>
+				<h1>TaskTapp</h1>
 			</header>
 			<section>
-				<h2>todos helps you get things done</h2>
+				<h2>TaskTapp helps you find professionals</h2>
+				
+				<br>
+				<br>
 				<a class="button" href="/login">Sign in</a>
 			</section>
 		</section>
 		<footer class="info">
-			<p>Created by <a href="https://www.jaredhanson.me">Jared Hanson</a></p>
-			<p>Part of <a href="https://todomvc.com">TodoMVC</a></p>
+			<p class="create">Created By: Veronica, Arya, Cooper, Tristan, Kathryn</p>
 			<p>Authentication powered by <a href="https://www.passportjs.org">Passport</a></p>
-		</footer>
+		</footer> -->
+		<nav>
+			<ul>
+			  <li><a href="/signup">Sign Up</a></li>
+			  <li><a href="/login">Login</a></li>
+			</ul>
+		  </nav>
+	  
+		  <div class="banner-wrapper">
+			<div class="welcome-banner">
+
+			  <h1 class="msg">Find and Book Local Services with Ease</h1>
+
+			  <p>Discover trusted professionals, compare prices, and schedule appointments on TaskTapp - all in one convenient place.</p>
+			  <a href="#discover" class="cta">Get Started Now</a>
+			</div>
+	  
+		</div>
+	  
+		<div class="bottom-boxes">
+		  <div class="box">
+			
+		  </div>
+		  <div class="box"></div>
+		  <div class="box"></div>
+		</div>
+		
+	  
+		  <svg class="svgHeader"xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1920" height="951.75" viewBox="0 0 1920 951.75">
+			<defs>
+			  <linearGradient id="linear-gradient" x1="0.5" x2="0.5" y2="1" gradientUnitas="objectBoundingBox">
+				<stop offset="0" stop-color="#32279e"/>
+				<stop offset="1" stop-color="#b756a3"/>
+			  </linearGradient>
+			</defs>
+			<path id="Path_380" data-name="Path 380" d="M1199.13,606.015s.819,83.808,0,130.614c7.39,81.407,168.228,80.582,489.2,47.659,639.705-67.148,941.146,61.3,1091.2,436.542s339.6,335.74,339.6,335.74V606.256Z" transform="translate(-1199.13 -606.015)" fill="url(#linear-gradient)"/>
+		  </svg>
+		  <svg xmlns="http://www.w3.org/2000/svg" class="svgHeader" xmlns:xlink="http://www.w3.org/1999/xlink" width="1800.97" height="2005.834" viewBox="0 0 1800.97 2005.834">
+			<defs>
+			  <linearGradient id="linear-gradient" x1="0.5" x2="0.5" y2="1" gradientUnits="objectBoundingBox">
+				<stop offset="0" stop-color="#32279e"/>
+				<stop offset="1" stop-color="#b756a3"/>
+			  </linearGradient>
+			</defs>
+			<path id="Path_381" data-name="Path 381" d="M2088.713,14.073c294,171.508,732.654,62.513,626.328,278.459s279.62,220.059,285.057,368.486c.741,104.145-370.172,123.271-370.172,123.271s-940.812-8.273-1090.866,366.966-339.931,405.316-339.931,405.316V-105.006s47.745-314.117,339.931-342.482S1794.718-157.435,2088.713,14.073Z" transform="translate(-1199.129 449.263)" fill="url(#linear-gradient)"/>
+		  </svg>
 	</body>
 </html>

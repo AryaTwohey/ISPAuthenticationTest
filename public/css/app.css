@@ -26,7 +26,7 @@
 }
 
 .nav a:hover {
-	border-bottom: 1px solid #DB7676;
+	border-bottom: 1px solid purple;
 }
 
 .nav button {
@@ -34,7 +34,7 @@
 }
 
 .nav button:hover {
-	border-bottom: 1px solid #DB7676;
+	border-bottom: 1px solid purple;
 	cursor: pointer;
 }
 
