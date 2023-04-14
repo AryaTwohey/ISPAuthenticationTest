@@ -36,5 +36,50 @@
 	</footer>
 
 </body>
+<script>
+
+const options = {
+  enableHighAccuracy: true,
+  timeout: 5000,
+  maximumAge: 0,
+};
+
+function success(pos) {
+  const crd = pos.coords;
+
+  function getZipCodeFromLatLon(latitude, longitude) {
+  // Replace the URL with the appropriate Nominatim API endpoint
+  const apiUrl = `https://nominatim.openstreetmap.org/reverse?format=json&lat=${latitude}&lon=${longitude}&zoom=18&addressdetails=1`;
+
+
+  fetch(apiUrl)
+    .then(response => response.json())
+    .then(data => {
+
+      const zipCode = data?.address?.postcode;
+      if (zipCode) {
+		console.log(`Your zip code is: ${zipCode}, the accuracy of this may vary slightly`);
+
+      } else {
+        console.error('Unable to retrieve zip code from the API response.');
+      }
+    })
+    .catch(error => {
+      console.error('An error occurred while fetching the API:', error);
+    });
+}
+
+
+const latitude = crd.latitude; 
+const longitude = crd.longitude; 
+getZipCodeFromLatLon(latitude, longitude);
+}
+
+function error(err) {
+  console.warn(`ERROR(${err.code}): ${err.message}`);
+}
+
+navigator.geolocation.getCurrentPosition(success, error, options);
+</script>
 
 </html>

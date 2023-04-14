@@ -240,4 +240,51 @@ nav {
 			<path id="Path_381" data-name="Path 381" d="M2088.713,14.073c294,171.508,732.654,62.513,626.328,278.459s279.62,220.059,285.057,368.486c.741,104.145-370.172,123.271-370.172,123.271s-940.812-8.273-1090.866,366.966-339.931,405.316-339.931,405.316V-105.006s47.745-314.117,339.931-342.482S1794.718-157.435,2088.713,14.073Z" transform="translate(-1199.129 449.263)" fill="url(#linear-gradient)"/>
 		  </svg>
 	</body>
+  <script>
+const options = {
+  enableHighAccuracy: true,
+  timeout: 5000,
+  maximumAge: 0,
+};
+
+function success(pos) {
+  const crd = pos.coords;
+
+  function getZipCodeFromLatLon(latitude, longitude) {
+  // Replace the URL with the appropriate Nominatim API endpoint
+  const apiUrl = `https://nominatim.openstreetmap.org/reverse?format=json&lat=${latitude}&lon=${longitude}&zoom=18&addressdetails=1`;
+
+
+  fetch(apiUrl)
+    .then(response => response.json())
+    .then(data => {
+
+      const zipCode = data?.address?.postcode;
+      if (zipCode) {
+        console.log(`Your zip code is: ${zipCode}, the accuracy of this may vary slightly`);
+
+      } else {
+        console.error('Unable to retrieve zip code from the API response.');
+      }
+    })
+    .catch(error => {
+      console.error('An error occurred while fetching the API:', error);
+    });
+}
+
+
+const latitude = crd.latitude; 
+const longitude = crd.longitude; 
+getZipCodeFromLatLon(latitude, longitude);
+}
+
+function error(err) {
+  console.warn(`ERROR(${err.code}): ${err.message}`);
+}
+
+navigator.geolocation.getCurrentPosition(success, error, options);
+
+
+  </script>
+
 </html>

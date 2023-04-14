@@ -65,6 +65,7 @@ router.post('/signup', function(req, res, next) {
       };
 
 
+
       req.login(user, function(err) {
         if (err) { return next(err); }
         res.redirect('/');
